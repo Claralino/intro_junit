@@ -21,7 +21,7 @@ public class CalculadoraTest {
 		calc = new Calculadora();
 	}
 	
-	@DisplayName("Testa a soma de dois n˙meros")
+	@DisplayName("Testa a soma de dois nÔøΩmeros")
 	@Test
 	public void testSomaDoisNumeros() {
 		int soma = calc.soma(4, 5);		
@@ -38,7 +38,7 @@ public class CalculadoraTest {
 	public void testDivisaoPorZero() {
 		try {
 			int divisao = calc.divisao(8, 0);
-			fail("ExceÁ„o n„o lanÁada");
+			fail("ExceÔøΩÔøΩo nÔøΩo lanÔøΩada");
 		}catch (ArithmeticException e) {
 			assertEquals("/ by zero", e.getMessage());
 		}		
@@ -48,6 +48,30 @@ public class CalculadoraTest {
 	public void testDivisaoPorZeroComAssertThrows() {
 		assertThrows(ArithmeticException.class,
 				() -> calc.divisao(8, 0));
+	}
+
+	// Novos testes feitos por mim com base nos m√©todos da classe 
+
+	@DisplayName("Testa a subtra√ß√£o de dois numeros")
+	@Test
+	public void testSubtracaoDoisNumeros() {
+		int subtracao = calc.subtracao(7, 3);		
+		Assertions.assertEquals(4, subtracao);		
+	}
+
+	@DisplayName("Testa a multiplicacao de dois numeros")
+	@Test
+	public void testMultiplicacaoDoisNumeros() {
+		int multiplicacao = calc.multiplicacao(25, 4);		
+		Assertions.assertEquals(100, multiplicacao);		
+	}
+
+	@DisplayName("Testa se numero eh positivo")
+	@Test
+	public void testNumeroPositivo() {
+		int n = -5;
+		boolean resultado = calc.ehPositivo(n);
+		Assertions.assertEquals(false, resultado);		
 	}
 
 }
